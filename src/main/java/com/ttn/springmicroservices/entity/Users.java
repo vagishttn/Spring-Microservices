@@ -6,6 +6,9 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.Entity;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 @Getter
@@ -14,11 +17,13 @@ import javax.persistence.Entity;
 @AllArgsConstructor
 public class Users extends AbstractEntity {
 
+  @Size(min = 3, max = 15)
+  @NotNull
   private String name;
 
-  private String email;
+  @Email @NotNull private String email;
 
-  private Integer age;
+  @NotNull private Integer age;
 
   private String emailResetToken;
 }
