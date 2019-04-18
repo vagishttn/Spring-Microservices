@@ -29,4 +29,9 @@ public class UserServiceImpl implements UserService {
     Optional<Users> users = userRepository.findById(id);
     return users.orElse(null);
   }
+
+  @Override
+  public void deleteUser(Long id) {
+    userRepository.deleteById(id);
+  }
 }
